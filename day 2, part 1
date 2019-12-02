@@ -1,0 +1,42 @@
+#include <fstream>
+
+using namespace std;
+
+ifstream f("data.in");
+ofstream g("data.out");
+
+unsigned long long k,x,a,v[10001],b[10001],m,n,p,i;
+char c;
+
+int main()
+{
+    while(f>>x)
+    {
+        f>>c;
+        v[k++]=x;
+    }
+    v[1] = 12;
+	v[2] = 2;
+    for(i=0; i<k; i++)
+    {
+        if(v[i]==1)
+        {
+            m=v[i+1];
+            n=v[i+2];
+            p=v[i+3];
+            v[p]=v[m]+v[n];
+            i=i+3;
+        }
+        else if(v[i]==2)
+        {
+            m=v[i+1];
+            n=v[i+2];
+            p=v[i+3];
+            v[p]=v[m]*v[n];
+            i=i+3;
+        }
+        else if(v[i]==99) break;
+    }
+    g<<v[0];
+    return 0;
+}
