@@ -1,0 +1,25 @@
+#include <fstream>
+
+using namespace std;
+
+ifstream f("data.in");
+ofstream g("data.out");
+
+int fct(int n)
+{
+    int x;
+    x=n/3-2;
+    if(x<0) return 0;
+    else
+        return x+fct(x);
+}
+
+unsigned long long t,s,x;
+
+int main()
+{
+    while(f>>x)
+        s=s+fct(x);
+    g<<s;
+    return 0;
+}
